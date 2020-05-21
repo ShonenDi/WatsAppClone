@@ -53,7 +53,7 @@ public class SingUp extends AppCompatActivity implements View.OnClickListener {
         btnLogIn.setOnClickListener(this);
 
         if (ParseUser.getCurrentUser() != null) {
-           // transitionToTwitterUsers();
+            transitionToWatsAppUsers();
         }
     }
 
@@ -75,7 +75,7 @@ public class SingUp extends AppCompatActivity implements View.OnClickListener {
                             public void done(ParseException e) {
                                 if (e == null) {
                                     FancyToast.makeText(SingUp.this, "Done", Toast.LENGTH_SHORT, FancyToast.INFO, false).show();
-                                   // transitionToTwitterUsers();
+                                    transitionToWatsAppUsers();
                                 } else {
                                     FancyToast.makeText(SingUp.this, e.getMessage(), Toast.LENGTH_SHORT,FancyToast.ERROR,false).show();
                                 }
@@ -103,9 +103,9 @@ public class SingUp extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-//    private void transitionToTwitterUsers() {
-//        Intent intent = new Intent(SingUp.this, TwitterUsers.class);
-//        startActivity(intent);
-//    }
+    private void transitionToWatsAppUsers() {
+        Intent intent = new Intent(SingUp.this, WatsAppCloneUsers.class);
+        startActivity(intent);
+    }
 }
 

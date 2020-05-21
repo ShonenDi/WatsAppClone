@@ -49,7 +49,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
         btnSingUp.setOnClickListener(this);
 
         if (ParseUser.getCurrentUser() != null) {
-           // transitionToTwitterUsers();
+            transitionToWatsAppUsers();
         }
 
 
@@ -67,7 +67,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                             @Override
                             public void done(ParseUser user, ParseException e) {
                                 if (user != null && e == null) {
-//                                    transitionToTwitterUsers();
+                                    transitionToWatsAppUsers();
                                 } else {
                                     FancyToast.makeText(LogIn.this, e.getMessage(), Toast.LENGTH_SHORT, FancyToast.ERROR, false).show();
                                 }
@@ -93,8 +93,8 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-//    private void transitionToTwitterUsers() {
-//        Intent intent = new Intent(LogIn.this, TwitterUsers.class);
-//        startActivity(intent);
-//    }
+    private void transitionToWatsAppUsers() {
+        Intent intent = new Intent(LogIn.this, WatsAppCloneUsers.class);
+        startActivity(intent);
+    }
 }
