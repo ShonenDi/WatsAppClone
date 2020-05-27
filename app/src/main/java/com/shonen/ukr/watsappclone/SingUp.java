@@ -89,6 +89,7 @@ public class SingUp extends AppCompatActivity implements View.OnClickListener {
             case R.id.btnLogINSU:
                 Intent intent = new Intent(SingUp.this, LogIn.class);
                 startActivity(intent);
+                finish();
                 break;
 
         }
