@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WatsAppCloneUsers"></activity>
+        <activity android:name=".WatsAppChatActivity"></activity>
+        <activity android:name=".WatsAppCloneUsers" />
         <activity android:name=".LogIn" />
         <activity android:name=".SingUp">
             <intent-filter>

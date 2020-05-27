@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -22,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class WatsAppCloneUsers extends AppCompatActivity {
+public class WatsAppCloneUsers extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ArrayList<String> watsAppUsers;
     private ListView listOfUsers;
     private ArrayAdapter<String> watsAppUsersAdapter;
@@ -71,6 +73,7 @@ public class WatsAppCloneUsers extends AppCompatActivity {
         listOfUsers = findViewById(R.id.lstOfUsers);
         watsAppUsers = new ArrayList<>();
         watsAppUsersAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, watsAppUsers);
+        listOfUsers.setOnItemClickListener(this);
 
         try {
             ParseQuery<ParseUser> parseQuery = ParseUser.getQuery();
@@ -111,5 +114,12 @@ public class WatsAppCloneUsers extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(WatsAppCloneUsers.this,WatsAppChatActivity.class);
+        intent.putExtra("selectUser",watsAppUsers.get(position));
+        startActivity(intent);
     }
 }
